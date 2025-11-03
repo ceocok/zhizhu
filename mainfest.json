@@ -1,0 +1,15 @@
+{
+  "name": "蜘蛛网络",
+  "short_name": "蜘蛛网络",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "https://storage.googleapis.com/gpt-engineer-file-uploads/p5pHU7mWuwRoNaSTdwgisGYgF8e2/uploads/1761901748306-spider-icon-vector-silhouette-halloween-260nw-2552543687.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
