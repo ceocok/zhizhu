@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
     <script type="text/javascript">
-      // 自动把 404 的路径重定向到首页，但保留原路径给前端路由
-      var redirect = window.location.pathname;
-      if (redirect && redirect !== "/") {
-        sessionStorage.redirect = redirect;
-      }
-      window.location.replace("/");
+      (function () {
+        var path = window.location.pathname;
+        var whitelist = [
+          "/robots.txt",
+          "/sitemap.xml",
+          "/favicon.ico"
+        ];
+
+        // 允许所有 .xml、.txt、.ico 文件直接返回 404，不跳转
+        var isStaticFile = /\.(xml|txt|ico|json|png|jpg|jpeg|svg|webmanifest)$/.test(path);
+
+        // 允许 .well-known/* 等安全文件路径通过
+        var isWellKnown = path.startsWith("/.well-known/");
+
+        // 如果是静态资源或白名单文件，不跳转
+        if (isStaticFile || whitelist.includes(path) || isWellKnown) {
+          document.title = "404 Not Found";
+          document.body.innerHTML = "<h2>404 Not Found</h2>";
+          return;
+        }
+
+        // 否则认为是前端路由，跳转到首页
+        if (path && path !== "/") {
+          sessionStorage.redirect = path;
+        }
+
+        window.location.replace("/");
+      })();
     </script>
   </head>
   <body></body>
