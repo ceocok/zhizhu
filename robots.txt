@@ -1,0 +1,38 @@
+# 允许所有主流搜索引擎爬虫
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 1
+
+User-agent: Sogou web spider
+Allow: /
+Crawl-delay: 1
+
+User-agent: YisouSpider
+Allow: /
+Crawl-delay: 1
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# 默认规则：允许所有其他爬虫
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# 网站地图位置
+Sitemap: https://cococ.co/sitemap.xml
